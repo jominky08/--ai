@@ -1,0 +1,10 @@
+{
+  "appId": "com.minkyu.chessai",
+  "appName": "Chess AI",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "https://basic-chess-ai-min-kyu.vercel.app/",
+    "cleartext": true
+  }
+}
