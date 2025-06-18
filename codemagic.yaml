@@ -1,10 +1,14 @@
 workflows:
-  build_debug_apk:
-    name: Build Debug APK
+  capacitor-android:
+    name: Build Capacitor Android App
     environment:
-      flutter: stable
+      vars:
+        PACKAGE_NAME: "com.example.chessai"
+      node: 16.13.0
     scripts:
-      - flutter pub get
-      - flutter build apk --debug
+      - npm install
+      - npx cap sync android
+      - cd android
+      - ./gradlew assembleDebug
     artifacts:
-      - build/app/outputs/flutter-apk/app-debug.apk
+      - android/app/build/outputs/**/*.apk
