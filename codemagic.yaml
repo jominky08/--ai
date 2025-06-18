@@ -1,12 +1,10 @@
 workflows:
-  build_apk:
-    name: Build Android APK
+  build_debug_apk:
+    name: Build Debug APK
     environment:
       flutter: stable
-      android_signing:
-        keystore_reference: YOUR_KEYSTORE_REFERENCE  # 서명 안 하면 이 줄은 지워도 돼
     scripts:
       - flutter pub get
-      - flutter build apk --release
+      - flutter build apk --debug
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
+      - build/app/outputs/flutter-apk/app-debug.apk
