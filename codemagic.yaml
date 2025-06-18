@@ -1,17 +1,12 @@
 workflows:
-  build-android:
+  build_apk:
     name: Build Android APK
-    max_build_duration: 15
     environment:
       flutter: stable
+      android_signing:
+        keystore_reference: YOUR_KEYSTORE_REFERENCE  # 서명 안 하면 이 줄은 지워도 돼
     scripts:
-      - name: Install dependencies
-        script: |
-          npm install
-          npx cap sync android
-      - name: Build APK
-        script: |
-          cd android
-          ./gradlew assembleRelease
+      - flutter pub get
+      - flutter build apk --release
     artifacts:
-      - android/app/build/outputs/apk/release/app-release.apk
+      - build/app/outputs/flutter-apk/app-release.apk
