@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.chessai",
+  "appName": "ChessAI",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
