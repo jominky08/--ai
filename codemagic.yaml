@@ -1,10 +1,13 @@
 workflows:
-  flutter-android:
-    name: Build Flutter Android APK
+  capacitor-android:
+    name: Build Capacitor Android App
     environment:
-      flutter: stable
+      node: 16.13.0
     scripts:
-      - flutter pub get
-      - flutter build apk --debug
+      - npm install
+      - npx cap add android
+      - npx cap sync android
+      - cd android
+      - ./gradlew assembleDebug
     artifacts:
-      - build/app/outputs/flutter-apk/app-debug.apk
+      - android/app/build/outputs/**/*.apk
