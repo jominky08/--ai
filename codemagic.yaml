@@ -7,8 +7,7 @@ workflows:
       - npm install
       - npx cap add android
       - npx cap sync android
-      - chmod +x android/gradlew       # ✅ 실행 권한 추가
       - cd android
-      - ./gradlew assembleDebug
+      - bash gradlew assembleDebug    # ✅ 핵심 변경!
     artifacts:
       - android/app/build/outputs/**/*.apk
